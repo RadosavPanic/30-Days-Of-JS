@@ -48,3 +48,30 @@ console.log("30 days of js".charCodeAt(4)); // 97
 console.log("This is JavaScript".indexOf("is")); // 2, returns first occurence index
 console.log("This is JavaScript".lastIndexOf("is")); // 5, returns last occurence index
 console.log("This is JavaScript".indexOf("Th", 5)); // -1, not found since search started from 5th index, not from 0
+
+// startsWith(substring), endsWith(substring)
+console.log("Love is JS".startsWith("Love")); // true
+console.log("Love is JS".startsWith("love")); // false
+console.log("Love is JS".endsWith("JS")); // true
+console.log("Love is JS".endsWith("is")); // false
+
+// repeat(count)
+console.log("js".repeat(4)); // jsjsjsjs
+
+// search(regexp: string | RegExp)
+let sentence =
+  "I love JavaScript. If you do not love JavaScript what else can you love.";
+console.log(sentence.search("love")); // 2, first match index
+console.log(sentence.search(/javascript/gi)); // 7, regExp (Regular Expression), 'g' means global (search everywhere) and 'i' is for ignore case
+
+// match(regexp: string | RegExp) -> returns array containing results or null if there is no match
+console.log(sentence.match("love")); // ['love', index: 2, input: 'I love JavaScript. If you do not love JavaScript what else can you love.', groups: undefined]
+console.log(sentence.match(/love/gi)); // ['love', 'love', 'love']
+
+let textMatch =
+  "In 2022, I ran 30 days of Python. Now, in 2023 I am super excited to start this challenge.";
+let regEx = /\d/g; // d with escape character doesn't mean a string of 'd', but instead acts as a digit (d=digit)
+
+console.log(textMatch.match(regEx)); // ['2', '0', '2', '2', '3', '0', '2', '0', '2', '3']
+console.log(textMatch.match(/\d+/g)); // + means one or more digit numbers (gets them as a whole if together)
+// ['2022', '30', '2023']
