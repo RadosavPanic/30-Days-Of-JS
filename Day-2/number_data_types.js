@@ -13,7 +13,7 @@ console.log(Math.max(-5, 3, 20, 4)); // 20, returns the maximum value
 const randomNumber = Math.random(); // creates a random number between 0 and 0.9999
 console.log(randomNumber); // this time 0.06834979391927543, next time program is executed, it returns random again
 
-const dice = Math.round(Math.random() * 6) + 1; // generates number between 1 and 6 like a dice
+const dice = Math.floor(Math.random() * 6) + 1; // generates number between 1 and 6 like a dice
 console.log(dice); // this time 4, next time again random dice number
 
 console.log(Math.abs(-4)); // 4, absolute value
