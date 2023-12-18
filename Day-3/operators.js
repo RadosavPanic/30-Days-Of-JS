@@ -100,3 +100,9 @@ console.log(count); // -1
 // Post-decrement -> first finishes current evaluation then subtracts value
 count = 0;
 console.log(count--, count); // 0, -1
+
+/* Ternary operator */
+let isRaining = true;
+isRaining
+  ? console.log(`You need a rain coat.`)
+  : console.log(`You don't need a rain coat.`);
