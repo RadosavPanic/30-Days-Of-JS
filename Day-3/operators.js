@@ -63,3 +63,40 @@ console.log(3 !== "3"); // true
 console.log(3 != "3"); // false
 console.log(3 !== 3); // false
 console.log(3 != 3); // false
+
+/* Logical operators, Short curcuiting */
+
+// AND (&&) -> all conditions need to be true to evaluate true, otherwise false
+console.log(4 > 3 && 10 > 5); // true && true -> true
+console.log(4 < 3 && 10 > 5); // false && true -> false, short curcuits right after first condition evaluates to false
+
+// OR (||) -> any of condition is true to evaluate to true, if all are false then false
+console.log(4 > 3 || 10 < 5); // true || false -> true, short curcuits right after first condition is true
+console.log(4 < 3 || 10 < 5); // false || false -> false, keeps until the end to find at least one true, if none then evaluates to false
+
+// Negation (!) -> negates, makes true to false, and false to true, so opposite value
+console.log(4 > 3, !(4 > 3)); // true, false
+console.log(!true); // false
+console.log(!false); // true
+console.log(!34); // false, coercion (converts 34 that is truthy value to boolean of true, then !true is false)
+
+/* Increment (+1) and Decrement (-1) */
+let count = 0;
+
+// Pre-increment -> increases value first then finishes current evaluation
+console.log(++count); // 1
+console.log(count); // 1
+
+// Post-increment -> first finishes current evaluation then increases value
+count = 0;
+console.log(count++); // 0
+console.log(count); // 1
+
+// Pre-decrement -> subtracts value first then finishes current evaluation
+count = 0;
+console.log(--count); // -1
+console.log(count); // -1
+
+// Post-decrement -> first finishes current evaluation then subtracts value
+count = 0;
+console.log(count--, count); // 0, -1
