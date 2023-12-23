@@ -48,3 +48,27 @@ let isRaining = false;
 isRaining
   ? console.log("You need a rain coat.")
   : console.log("No need for a rain coat.");
+
+// Check driver age function
+const checkIsDriverAge = (age) =>
+  age >= 18
+    ? console.log("You are old enough to drive.")
+    : console.log("You are left with 3 years to drive.");
+
+let personAge = +prompt("Enter your age:");
+personAge &&
+  personAge != "NaN" &&
+  typeof personAge === "number" &&
+  checkIsDriverAge(personAge);
+
+// Check even number function
+const checkIsNumberEven = (number) =>
+  number % 2 == 0
+    ? console.log(`${number} is even number.`)
+    : console.log(`${number} is odd number.`);
+
+let promptNum = +prompt("Enter your number:");
+promptNum &&
+  promptNum != "NaN" &&
+  typeof promptNum === "number" &&
+  checkIsNumberEven(promptNum);
