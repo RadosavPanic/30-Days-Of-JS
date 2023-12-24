@@ -16,7 +16,8 @@ else console.log("No need for a rain coat.");
 // Go out freely.
 
 let dayUserInput = prompt("What day is today?");
-let day = dayUserInput.toLowerCase();
+let day;
+if (dayUserInput) day = dayUserInput.toLowerCase();
 
 switch (day) {
   case "monday":
