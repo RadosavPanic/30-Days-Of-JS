@@ -103,3 +103,88 @@ console.log(arr1); // [27, 19, 15, 6, 1]
 // findLast(callbackfn) -> iterates array in reverse order and returns value of first element that matches criteria
 console.log(countries); // ['Bolivia', 'Canada', 'Denmark', 'Finland']
 console.log(countries.findLast((country) => country.includes("Can"))); // "Canada"
+
+/* Assignments */
+const countriesList = [
+  "Albania",
+  "Bolivia",
+  "Canada",
+  "Denmark",
+  "Ethiopia",
+  "Finland",
+  "Germany",
+  "Hungary",
+  "Ireland",
+  "Japan",
+  "Kenya",
+];
+
+const webTechsList = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Redux",
+  "Node",
+  "MongoDB",
+];
+
+// First, middle, last items
+console.log(
+  webTechsList.at(0),
+  webTechsList.at(webTechsList.length / 2),
+  webTechsList.at(-1)
+);
+
+const itCompanies = [
+  "facebook",
+  "google",
+  "microsoft",
+  "apple",
+  "ibm",
+  "oracle",
+  "amazon",
+];
+
+console.log(`Number of IT Companies: ${itCompanies.length}`); // 7
+console.log(
+  `First: ${itCompanies.at(0)}, Middle: ${itCompanies.at(
+    itCompanies.length / 2
+  )}, Last: ${itCompanies.at(-1)}`
+); // First: facebook, Middle: apple, Last: amazon
+
+itCompanies.forEach((company) => console.log(company)); // facebook google microsoft apple ibm oracle amazon
+
+itCompanies[0] = itCompanies
+  .at(0)
+  .replace(itCompanies.at(0).at(0), itCompanies.at(0).at(0).toUpperCase());
+itCompanies[1] = itCompanies
+  .at(1)
+  .replace(itCompanies.at(1).at(0), itCompanies.at(1).at(0).toUpperCase());
+itCompanies[2] = itCompanies
+  .at(2)
+  .replace(itCompanies.at(2).at(0), itCompanies.at(2).at(0).toUpperCase());
+itCompanies[3] = itCompanies
+  .at(3)
+  .replace(itCompanies.at(3).at(0), itCompanies.at(3).at(0).toUpperCase());
+itCompanies[4] = itCompanies
+  .at(4)
+  .replace(itCompanies.at(4).at(0), itCompanies.at(4).at(0).toUpperCase());
+itCompanies[5] = itCompanies
+  .at(5)
+  .replace(itCompanies.at(5).at(0), itCompanies.at(5).at(0).toUpperCase());
+itCompanies[6] = itCompanies
+  .at(6)
+  .replace(itCompanies.at(6).at(0), itCompanies.at(6).at(0).toUpperCase());
+
+console.log(itCompanies); // ['Facebook', 'Google', 'Microsoft', 'Apple', 'Ibm', 'Oracle', 'Amazon']
+
+console.log(
+  `${itCompanies.slice(0, -1).join(", ")} and ${itCompanies.at(
+    -1
+  )} are big IT companies.`
+); // Facebook, Google, Microsoft, Apple, Ibm, Oracle and Amazon are big IT companies.
+
+itCompanies.includes("Google")
+  ? console.log(itCompanies.find((company) => company.includes("Google")))
+  : console.log(`Company is not found.`); // Google
