@@ -58,8 +58,48 @@ console.log(arr1.lastIndexOf(2)); // 4
 // includes(searchElement, fromIndex?)
 console.log(arr1.includes(5)); // true
 
-// Array.isArray() -> checking if the data type is Array
+// Array.isArray(arg) -> checking if the data type is Array
 console.log(Array.isArray(arr1)); // true
 
 // Converting array to string (returns a string represenatation of array)
 console.log(arr1.toString()); // "1,2,5,10,2"
+
+// join(separator?) -> joins array elements to turn them into a string using specified separator that we specify
+console.log(arr1.join("->")); // "1->2->5->10->2'
+console.log(arr1.join("_")); // "1_2_5_10_2"
+
+// slice(start?, end?) -> returns a new sliced array without modifying old array
+console.log(arr1.slice(1, 4)); // [2, 5, 10]
+console.log(arr1.slice(0, -2)); // [1, 2, 5]
+
+// splice(start, deleteCount, ...items) -> modifies old array and returns new array after deleted sliced items, as well as items inserted in place if specified
+console.log(arr1.splice(0, 2, "a", "b"));
+console.log(arr1); // ['a', 'b', 5, 10, 2]
+
+// Adding items to an array
+arr1.push("js"); // adds new item to the end (and returns new length of array - integer)
+console.log(arr1); // ['a', 'b', 5, 10, 2, 'js']
+arr1.unshift("py"); // adds new item to the start (and returns new length of array - integer)
+console.log(arr1); // ['py', 'a', 'b', 5, 10, 2, 'js']
+
+// Removing items from an array
+arr1.pop(); // removes 1 item from the end (and returns it)
+console.log(arr1); // ['py', 'a', 'b', 5, 10, 2]
+arr1.shift(); // removes 1 item from the start (and returns it)
+console.log(arr1); // ['a', 'b', 5, 10, 2]
+
+// reverse() -> reverses the order of an array, and modifies the old array
+console.log(arr1.reverse()); // [2, 10, 5, 'b', 'a']
+console.log(arr1); // [2, 10, 5, 'b', 'a']
+
+// sort(callbackfn)
+arr1 = [1, 15, 6, 27, 19];
+arr1.sort((a, b) => a - b); // sorting in ascending order
+console.log(arr1); // [1, 6, 15, 19, 27]
+
+arr1.sort((a, b) => b - a); // sorting in descending order
+console.log(arr1); // [27, 19, 15, 6, 1]
+
+// findLast(callbackfn) -> iterates array in reverse order and returns value of first element that matches criteria
+console.log(countries); // ['Bolivia', 'Canada', 'Denmark', 'Finland']
+console.log(countries.findLast((country) => country.includes("Can"))); // "Canada"
