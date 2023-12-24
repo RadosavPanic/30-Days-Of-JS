@@ -188,3 +188,50 @@ console.log(
 itCompanies.includes("Google")
   ? console.log(itCompanies.find((company) => company.includes("Google")))
   : console.log(`Company is not found.`); // Google
+
+// Check if companies have more than 1 'o'
+
+// using filter
+const hasMoreThanOneO = (company) => {
+  const oCount = company
+    .split("")
+    .filter((char) => char.toLowerCase() === "o").length;
+  return oCount === 1;
+};
+
+const filteredCompanies = itCompanies.filter(hasMoreThanOneO);
+console.log(filteredCompanies); // ['Oracle', 'Amazon']
+
+// without filter
+function hasMoreOLetters(companies) {
+  const result = [];
+
+  for (let i = 0; i < companies.length; i++) {
+    const companyName = companies[i];
+    let countO = 0;
+
+    for (let j = 0; j < companyName.length; j++) {
+      if (companyName[j].toLowerCase() === "o") {
+        countO++;
+        if (countO > 1) {
+          break;
+        }
+      }
+    }
+
+    if (countO === 1) {
+      result.push(companyName);
+    }
+  }
+
+  return result;
+}
+
+const filteredCompanies2 = hasMoreOLetters(itCompanies);
+console.log(filteredCompanies2); // ['Oracle', 'Amazon']
+
+console.log(itCompanies); // ['Facebook', 'Google', 'Microsoft', 'Apple', 'Ibm', 'Oracle', 'Amazon']
+console.log(itCompanies.reverse()); // ['Amazon', 'Oracle', 'Ibm', 'Apple', 'Microsoft', 'Google', 'Facebook']
+
+console.log(itCompanies.slice(0, 3)); // ['Amazon', 'Oracle', 'Ibm']
+console.log(itCompanies.slice(-3)); // ['Microsoft', 'Google', 'Facebook']
