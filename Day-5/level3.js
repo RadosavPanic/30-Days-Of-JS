@@ -25,3 +25,31 @@ console.log(
   +Math.abs(minAge - ageAvg).toPrecision(2),
   +Math.abs(maxAge - ageAvg).toPrecision(2)
 ); // 3.8 3.2
+
+console.log(countries.slice(0, 10)); // ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria']
+
+let middleIndex = Math.floor(countries.length / 2);
+
+const middleCountries = countries.slice(middleIndex - 1, middleIndex + 1);
+console.log(middleCountries); // ['Lebanon', 'Lesotho']
+
+let firstHalf;
+let secondHalf;
+
+if (countries.length % 2 === 0) {
+  firstHalf = countries.slice(0, countries.length / 2);
+  console.log(countries.length / 2);
+  secondHalf = countries
+    .slice(countries.length / 2, -1)
+    .concat(countries.at(-1));
+} else {
+  firstHalf = countries.slice(0, Math.floor(countries.length / 2) + 1);
+  console.log(countries.length / 2);
+  secondHalf = countries
+    .slice(Math.floor(countries.length / 2) + 1, -1)
+    .concat(countries.at(-1));
+}
+
+// there are 193 countries
+console.log(firstHalf); // 97 countries
+console.log(secondHalf); // 96 countries
