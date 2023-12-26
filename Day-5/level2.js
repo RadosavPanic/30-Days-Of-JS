@@ -193,3 +193,59 @@ const countries = [
   "Zambia",
   "Zimbabwe",
 ];
+
+const webTechs = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Redux",
+  "Node",
+  "MongoDB",
+];
+
+/* 1st phase */
+
+let text =
+  "I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.";
+text = text.replaceAll(".", "").replaceAll(",", "");
+console.log(text); // I love teaching and empowering people I teach HTML CSS JS React Python
+
+let words = text.split(" ");
+console.log(words); // ['I', 'love', 'teaching', 'and', 'empowering', 'people', 'I', 'teach', 'HTML', 'CSS', 'JS', 'React', 'Python']
+console.log(words.length); // 13
+
+const shoppingCart = ["Milk", "Coffee", "Tea", "Honey"];
+
+if (!shoppingCart.includes("Meat")) shoppingCart.unshift("Meat");
+console.log(shoppingCart); // ['Meat', 'Milk', 'Coffee', 'Tea', 'Honey']
+if (!shoppingCart.includes("Sugar")) shoppingCart.push("Sugar");
+console.log(shoppingCart); // ['Meat', 'Milk', 'Coffee', 'Tea', 'Honey', 'Sugar']
+
+let isAlergicToHoney = true;
+
+if (isAlergicToHoney)
+  shoppingCart.splice(
+    shoppingCart.findIndex((items) => items.includes("Honey")),
+    1
+  );
+console.log(shoppingCart); // ['Meat', 'Milk', 'Coffee', 'Tea', 'Sugar']
+
+/* 2nd phase */
+
+if (countries.includes("Ethiopia")) console.log("ETHIOPIA");
+else countries.push("Ethiopia");
+// ETHIOPIA
+
+if (webTechs.includes("Sass")) console.log("Sass is a CSS preprocess");
+else {
+  webTechs.push("Sass");
+  console.log(webTechs);
+}
+// ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node', 'MongoDB', 'Sass']
+
+const frontEnd = ["HTML", "CSS", "JS", "React", "Redux"];
+const backEnd = ["Node", "Express", "MongoDB"];
+
+const fullStack = frontEnd.concat(backEnd);
+console.log(fullStack); // ['HTML', 'CSS', 'JS', 'React', 'Redux', 'Node', 'Express', 'MongoDB']
