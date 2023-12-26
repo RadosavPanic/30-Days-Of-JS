@@ -28,9 +28,9 @@ charsInJS = arr1.split(", ");
 console.log(charsInJS); // ['Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle']
 
 // Accessing array items with index
-const countries = ["Bolivia", "Canada", "Denmark", "Finland"];
-console.log(countries[2], countries.at(2)); // Denmark, Denmark, at(index) method for accessing elements
-console.log(countries[countries.length - 1], countries.at(-1)); // Denmark, Denmark
+const countriesArray = ["Bolivia", "Canada", "Denmark", "Finland"];
+console.log(countriesArray[2], countriesArray.at(2)); // Denmark, Denmark, at(index) method for accessing elements
+console.log(countriesArray[countriesArray.length - 1], countriesArray.at(-1)); // Denmark, Denmark
 
 /* Array methods */
 
@@ -101,8 +101,8 @@ arr1.sort((a, b) => b - a); // sorting in descending order
 console.log(arr1); // [27, 19, 15, 6, 1]
 
 // findLast(callbackfn) -> iterates array in reverse order and returns value of first element that matches criteria
-console.log(countries); // ['Bolivia', 'Canada', 'Denmark', 'Finland']
-console.log(countries.findLast((country) => country.includes("Can"))); // "Canada"
+console.log(countriesArray); // ['Bolivia', 'Canada', 'Denmark', 'Finland']
+console.log(countriesArray.findLast((country) => country.includes("Can"))); // "Canada"
 
 /* Assignments */
 const countriesList = [
