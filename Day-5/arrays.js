@@ -235,3 +235,22 @@ console.log(itCompanies.reverse()); // ['Amazon', 'Oracle', 'Ibm', 'Apple', 'Mic
 
 console.log(itCompanies.slice(0, 3)); // ['Amazon', 'Oracle', 'Ibm']
 console.log(itCompanies.slice(-3)); // ['Microsoft', 'Google', 'Facebook']
+
+// New method (doesn't mutate original array)
+const itCompanies2 = itCompanies.toReversed();
+console.log(itCompanies2); // ['Facebook', 'Google', 'Microsoft', 'Apple', 'Ibm', 'Oracle', 'Amazon']
+
+console.log(
+  itCompanies2.slice(itCompanies2.length / 2, itCompanies2.length / 2 + 1) // ['Apple']
+);
+
+itCompanies2.shift();
+console.log(itCompanies2); // ['Google', 'Microsoft', 'Apple', 'Ibm', 'Oracle', 'Amazon']
+
+itCompanies2.splice(itCompanies2.length / 2, 1);
+console.log(itCompanies2); // ['Google', 'Microsoft', 'Apple', 'Oracle', 'Amazon']
+
+itCompanies2.pop(); // ['Google', 'Microsoft', 'Apple', 'Oracle']
+
+itCompanies2.splice(0, itCompanies2.length); // removing all IT companies
+console.log(itCompanies2); // []
