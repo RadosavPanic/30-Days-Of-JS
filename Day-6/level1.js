@@ -81,3 +81,85 @@ for (iterator = 0; iterator <= 10; iterator++) {
  9    81    729
  10   100   1000
 */
+
+// Even numbers 0 to 100
+console.log(`--Even numbers-- 0 to 100`);
+for (iterator = 0; iterator <= 100; iterator++) {
+  if (iterator % 2 == 0) console.log(iterator);
+}
+
+// Odd numbers 0 to 100
+console.log(`--Odd numbers-- 0 to 100`);
+for (iterator = 0; iterator <= 100; iterator++) {
+  if (iterator % 2 != 0) console.log(iterator);
+}
+
+// Prime numbers 0 to 100
+console.log(`--Prime numbers-- 0 to 100`);
+for (iterator = 2; iterator <= 100; iterator++) {
+  let isPrime = true;
+
+  for (let j = 2; j <= Math.sqrt(iterator); j++) {
+    if (iterator % j === 0) {
+      isPrime = false;
+      break;
+    }
+  }
+
+  if (isPrime) console.log(iterator);
+} // 2 3 5 7 11 13 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
+
+// Sum of all numbers
+let sumAll = 0;
+for (iterator = 0; iterator <= 100; iterator++) sumAll += iterator;
+
+console.log(`Sum of all numbers from 0 to 100 is: ${sumAll}`); // Sum of all numbers from 0 to 100 is: 5050
+
+// sum even and sum odd numbers
+let sumEvens = 0;
+let sumOdds = 0;
+for (iterator = 0; iterator <= 100; iterator++) {
+  if (iterator % 2 == 0) sumEvens += iterator;
+  else {
+    sumOdds += iterator;
+  }
+}
+
+console.log(`Sum of all evens is: ${sumEvens}, and all odds is: ${sumOdds}`); // Sum of all evens is: 2550, and all odds is: 2500
+
+// generate an array of 5 random numbers
+const random5 = [];
+for (iterator = 0; iterator < 5; iterator++) {
+  random5.push(Number.parseInt(Math.random() * 100));
+}
+
+console.log(random5); // [38, 72, 62, 99, 59], random 5 numbers are like this (this time)
+
+// generate an array of 5 random numbers that are unique
+const random5Unique = [];
+for (iterator = 0; iterator < 5; iterator++) {
+  const randomNumber = Number.parseInt(Math.random() * 100);
+
+  if (!random5Unique.includes(randomNumber)) {
+    random5Unique.push(randomNumber);
+  }
+}
+
+console.log(random5Unique);
+
+// generate 5 letters random id
+const generateRandomId = () => {
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let randomId = "";
+
+  for (iterator = 0; iterator < 6; iterator++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    randomId += characters.charAt(randomIndex);
+  }
+
+  return randomId;
+};
+
+const randomId = generateRandomId();
+console.log(randomId); // JhjuW6 (this time, other time random)
