@@ -86,3 +86,14 @@ let concatTwoStrings = (function (material) {
 })("Steel");
 
 console.log(concatTwoStrings); // Stainless Steel
+
+// Default parameters
+const weightOfObject = (mass, gravity = 9.81) => mass * gravity + " N";
+
+console.log(weightOfObject(100)); // 981 N
+console.log(weightOfObject(61, 13)); // 793 N
+
+const calculateAge = (birthYear, currentYear = 2024) => currentYear - birthYear;
+
+console.log(calculateAge(1984)); // 40
+console.log(calculateAge(1984, 2016)); // 32
