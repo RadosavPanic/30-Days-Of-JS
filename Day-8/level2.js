@@ -125,3 +125,44 @@ for (const [key, value] of Object.entries(usersL2)) {
 
 console.log(`MERN stack users: ${mernStackUsers.join(", ")}`); // MERN Stack users: Asab, Paul
 console.log(`MERN stack users count: ${mernStackUsersCount}`); // MERN Stack users count: 2
+
+// Set my name without modifying original users object
+const updatedUsersL2 = {
+  ...usersL2,
+  Radosav: {
+    email: "radosav@radosav.com",
+    skills: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Node",
+      "Express",
+      "MongoDB",
+      "Python",
+    ],
+    age: 22,
+    isLoggedIn: true,
+    points: 70,
+  },
+};
+
+const userKeys = Object.keys(updatedUsersL2);
+console.log(userKeys); // ['Alex', 'Asab', 'Brook', 'Daniel', 'John', 'Thomas', 'Paul', 'Radosav']
+
+const userValues = Object.values(updatedUsersL2);
+console.log(userValues); // (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}] (8 objects containing users data)
+
+for (const [key, value] of Object.entries(countries)) {
+  console.log(
+    `Name: ${value.name}\nCapital: ${value.capital}\nPopulation: ${
+      value.population
+    }\nLanguages: ${value.languages.join(", ")}`
+  );
+}
+// each of 250 countries are printed in below format:
+
+/* Name: Venezuela (Bolivarian Republic of)
+Capital: Caracas
+Population: 31028700
+Languages: Spanish */
