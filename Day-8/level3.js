@@ -66,3 +66,108 @@ First name: Radosav
 Last name: Panic
 Balance: 2400 
 */
+
+const usersL3 = [
+  {
+    _id: "ab12ex",
+    username: "Alex",
+    email: "alex@alex.com",
+    password: "123123",
+    createdAt: "01/04/2024 9:00 AM",
+    isLoggedIn: false,
+  },
+  {
+    _id: "fg12cy",
+    username: "Asab",
+    email: "asab@asab.com",
+    password: "123456",
+    createdAt: "01/04/2024 9:30 AM",
+    isLoggedIn: true,
+  },
+  {
+    _id: "zwf8md",
+    username: "Brook",
+    email: "brook@brook.com",
+    password: "123111",
+    createdAt: "01/04/2024 9:45 AM",
+    isLoggedIn: true,
+  },
+  {
+    _id: "eefamr",
+    username: "Martha",
+    email: "martha@martha.com",
+    password: "123222",
+    createdAt: "01/04/2024 9:50 AM",
+    isLoggedIn: false,
+  },
+  {
+    _id: "ghderc",
+    username: "Thomas",
+    email: "thomas@thomas.com",
+    password: "123333",
+    createdAt: "01/04/2024 10:00 AM",
+    isLoggedIn: false,
+  },
+];
+
+function currentFormattedDate() {
+  const now = new Date();
+
+  function calcLeadingZero(num) {
+    return String(num).padStart(2, "0");
+  }
+
+  const month = calcLeadingZero(now.getMonth() + 1);
+  const day = calcLeadingZero(now.getDate());
+  const hour = calcLeadingZero(now.getHours());
+  const mins = calcLeadingZero(now.getMinutes());
+
+  let timeOfDay = "";
+  if (now.getHours() >= 0 && now.getHours() < 12) {
+    timeOfDay = "AM";
+  } else {
+    timeOfDay = "PM";
+  }
+
+  const formattedDate = `${month}/${day}/${now.getFullYear()} ${hour}:${mins} ${timeOfDay}`;
+
+  return formattedDate;
+}
+
+const generateRandomId = () => {
+  const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+  let randomId = "";
+
+  for (let i = 0; i < 6; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    randomId += characters.charAt(randomIndex);
+  }
+
+  return randomId;
+};
+
+function signUp(accUsername, accPassword, accEmail) {
+  let accountExists = false;
+  for (const [key, value] of Object.entries(usersL3)) {
+    if (value.username === accUsername) {
+      console.log(`Account ${accUsername} already exists.`);
+      accountExists = true;
+      break;
+    }
+  }
+
+  if (!accountExists) {
+    usersL3.push({
+      _id: generateRandomId(),
+      username: accUsername,
+      email: accEmail,
+      password: accPassword,
+      createdAt: currentFormattedDate(),
+      isLoggedIn: true,
+    });
+
+    console.log(`Successfully created account. Welcome ${accUsername}!`);
+  }
+}
+
+signUp("Radosav", "123444", "radosav@radosav.com"); // Successfully created account. Welcome Radosav!
