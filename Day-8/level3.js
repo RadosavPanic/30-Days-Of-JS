@@ -267,3 +267,40 @@ function averageRating(productName) {
 }
 
 averageRating("TV"); // Average rating of TV: 5.25 (if rounded, will be 5)
+
+// Likes/unlikes product function
+function likeProduct(accUsername, productName) {
+  let userId;
+  for (const [key, value] of Object.entries(usersL3)) {
+    if (value.username === accUsername) {
+      if (value.isLoggedIn) {
+        userId = value._id;
+        console.log(userId);
+        break;
+      } else {
+        console.log(`First log in to be able to like a product.`);
+      }
+    }
+  }
+
+  for (const [key, value] of Object.entries(products)) {
+    if (value.name === productName) {
+      const userIndex = value.likes.indexOf(userId);
+
+      if (userIndex !== -1) {
+        value.likes.splice(userIndex, 1);
+        console.log(`Unliked a product. (${accUsername})`);
+      } else {
+        value.likes.push(userId);
+        console.log(`Liked a product. (${accUsername})`);
+      }
+
+      break;
+    }
+  }
+}
+
+likeProduct("Brook", "mobile phone"); // Liked a product. (Brook)
+likeProduct("Brook", "mobile phone"); // Unliked a product. (Brook)
+
+likeProduct("Martha", "mobile phone"); // Liked a product. (Marta)
