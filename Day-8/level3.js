@@ -67,6 +67,7 @@ Last name: Panic
 Balance: 2400 
 */
 
+// SignUp and SignIn challenge (Users)
 const usersL3 = [
   {
     _id: "ab12ex",
@@ -171,3 +172,98 @@ function signUp(accUsername, accPassword, accEmail) {
 }
 
 signUp("Radosav", "123444", "radosav@radosav.com"); // Successfully created account. Welcome Radosav!
+
+function signIn(accUsername, accPassword) {
+  for (const [key, value] of Object.entries(usersL3)) {
+    if (value.username === accUsername) {
+      if (value.password === accPassword) {
+        value.isLoggedIn = true;
+        console.log(`Successfully logged in. Welcome ${accUsername}!`);
+      } else {
+        console.log(`Incorrect password. Try again.`);
+        break;
+      }
+    }
+  }
+}
+
+signIn("Brook", "123111"); // Successfully logged in. Welcome Brook!
+
+// Products challenge
+const products = [
+  {
+    _id: "eedfcf",
+    name: "mobile phone",
+    description: "Huawei Honor",
+    price: 200,
+    ratings: [
+      { userId: "fg12cy", rate: 5 },
+      { userId: "zwf8md", rate: 4.5 },
+    ],
+    likes: [],
+  },
+  {
+    _id: "aegfal",
+    name: "Laptop",
+    description: "MacPro: System Darwin",
+    price: 2500,
+    ratings: [],
+    likes: ["fg12cy"],
+  },
+  {
+    _id: "hedfcg",
+    name: "TV",
+    description: "Smart TV:Procaster",
+    price: 400,
+    ratings: [{ userId: "fg12cy", rate: 5 }],
+    likes: ["fg12cy"],
+  },
+];
+
+function rateProduct(accUsername, productName, ratingNumber) {
+  let userId;
+  for (const [key, value] of Object.entries(usersL3)) {
+    if (value.username === accUsername) {
+      if (value.isLoggedIn) {
+        userId = value._id;
+        break;
+      } else {
+        console.log(`First log in to be able to rate a product.`);
+      }
+    }
+  }
+
+  for (const [key, value] of Object.entries(products)) {
+    if (value.name === productName) {
+      value.ratings.push({ userId, rate: ratingNumber });
+      console.log(
+        `Rated ${productName} successfully. Thank you ${accUsername}!`
+      );
+      break;
+    }
+  }
+}
+
+signIn("Martha", "123222"); // Successfully logged in. Welcome Martha! (First logging in to be able to rate)
+
+rateProduct("Martha", "TV", 5.5); // Rated TV successfully. Thank you Martha!
+
+function averageRating(productName) {
+  for (const [key, value] of Object.entries(products)) {
+    if (value.name === productName) {
+      if (value.ratings.length === 0) {
+        console.log(`Product ${productName} has no ratings.`);
+        break;
+      }
+      if (value.ratings.length > 0) {
+        const avgRating = value.ratings.reduce(
+          (acc, val, _, arr) => acc + val.rate / arr.length,
+          0
+        );
+        console.log(`Average rating of ${productName}: ${avgRating}`);
+      }
+    }
+  }
+}
+
+averageRating("TV"); // Average rating of TV: 5.25 (if rounded, will be 5)
