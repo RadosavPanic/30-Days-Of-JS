@@ -75,3 +75,23 @@ console.log(sumOfNums); // 15
 const names = ["Asabeneh", "Mathias", "Elias", "Brook"];
 const allAreStr = names.every((name) => typeof name === "string");
 console.log(allAreStr); // true
+
+// find
+const ages = [24, 22, 25, 32, 35, 18, 15];
+const age = ages.find((age) => age < 20);
+console.log(age); // 18
+
+const nameLongerThan7 = names.find((name) => name.length > 7);
+console.log(nameLongerThan7); // Asabeneh
+
+// findIndex
+const indexOfLongerThan7 = names.findIndex((name) => name.length > 7);
+console.log(indexOfLongerThan7); // 0
+
+// some
+console.log(names.some((name) => typeof name === "number")); // false (all are strings)
+
+// sort, toSorted (new), sort mutates original array
+const products = ["Milk", "Coffee", "Sugar", "Honey", "Apple", "Carrot"];
+const productsSorted = products.toSorted();
+console.log(productsSorted); // ['Apple', 'Carrot', 'Coffee', 'Honey', 'Milk', 'Sugar']
