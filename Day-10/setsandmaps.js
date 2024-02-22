@@ -35,3 +35,21 @@ console.log(setOfCompanies); // Set(4) {'Facebook', 'Amazon', 'Oracle', 'Microso
 
 setOfCompanies.clear();
 console.log(setOfCompanies.size); // 0
+
+// Maps
+const map1 = new Map();
+console.log(map1.size); // 0
+
+const countries1 = [
+  ["Finland", "Helsinki"],
+  ["Sweden", "Stockholm"],
+  ["Norway", "Oslo"],
+];
+
+const countriesMap1 = new Map(countries1);
+console.log(countriesMap1); // Map(3) {'Finland' => 'Helsinki', 'Sweden' => 'Stockholm', 'Norway' => 'Oslo'}
+
+console.log(countriesMap1.has("Finland")); // true
+console.log(countriesMap1.get("Finland")); // Helsinki
+countriesMap1.set("Serbia", "Belgrade");
+console.log(countriesMap1.get("Serbia")); // Belgrade
