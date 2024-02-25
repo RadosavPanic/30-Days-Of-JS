@@ -61,3 +61,68 @@ let { width: w } = rectangle;
 console.log(w); // 20
 let { height: heightOfRect, area: areaOfRect } = rectangle;
 console.log(heightOfRect, areaOfRect); // 10 200
+
+// Object perimeter without destructuring
+const calculatePerimeter1 = (rectangle) => {
+  return 2 * (rectangle.width + rectangle.height);
+};
+
+console.log(calculatePerimeter1(rectangle)); // 60
+
+// Object perimeter with destructuring
+const calculatePerimeter2 = ({ width, height }) => {
+  return 2 * (width + height);
+};
+
+console.log(calculatePerimeter2(rectangle)); // 60
+
+// Destructuring object during iteration
+const todoList = [
+  {
+    task: "Prepare JS Test",
+    time: "4/2/2024 8:30",
+    completed: true,
+  },
+  {
+    task: "Give JS Test",
+    time: "28/2/2024 10:00",
+    completed: false,
+  },
+  {
+    task: "Assess JS Test",
+    time: "28/2/2024 12:30",
+    completed: false,
+  },
+];
+
+for (const { task, time, completed } of todoList) {
+  console.log(task, time, completed);
+}
+/* 
+Prepare JS Test 4/2/2024 8:30 true
+Give JS Test 28/2/2024 10:00 false
+Assess JS Test 28/2/2024 12:30 false
+*/
+
+const user = {
+  name: "Radosav",
+  title: "Programmer",
+  country: "Serbia",
+  city: "Belgrade",
+};
+
+const copiedUser = { ...user };
+console.log(copiedUser); // {name: 'Radosav', title: 'Programmer', country: 'Serbia', city: 'Belgrade'}
+
+const allNums = (...args) => {
+  console.log(args);
+};
+
+allNums(1, 2, 3, 4, 5); // [1, 2, 3, 4, 5]
+
+function arbitraryParams(nums) {
+  console.log(arguments); // only available in ordinary functions, not arrow
+  console.log(nums); // 15 (only one argument defined, so only one read)
+}
+
+arbitraryParams(15, 2, 10, 12, 18);
