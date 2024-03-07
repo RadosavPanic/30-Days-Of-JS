@@ -94,3 +94,24 @@ console.log(matched); // ['Apple', 'apple']
 pattern = /[Aa]pple|[Bb]anana/g;
 matched = sentence3.match(pattern);
 console.log(matched); // ['Apple', 'banana', 'apple']
+
+// Escape character (\)
+let sentence4 = "This reg exp was made on March 7, 2024";
+pattern = /\d/g; // d means digits
+matched = sentence4.match(pattern);
+console.log(matched); // ['7', '2', '0', '2', '4']
+
+// One or more times (+)
+pattern = /\d+/g;
+matched = sentence4.match(pattern);
+console.log(matched); // ['7', '2024']
+
+// Period (.)
+pattern = /[a]./g; // letter a and . is any character except new line
+let sentence5 = "Apple and banana are fruits";
+matched = sentence5.match(pattern);
+console.log(matched); // ['an', 'an', 'an', 'a ', 'ar']
+
+pattern = /[a].+/g; // . any character, + one or more times
+matched = sentence5.match(pattern);
+console.log(matched); // ['and banana are fruits']
