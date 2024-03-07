@@ -66,3 +66,31 @@ p%e%o%ple.\
 let matchReplaced3 = sentence2.replace(/%/g, "");
 console.log(matchReplaced3);
 // I am teacher and I love teaching.There is nothing as more rewarding as educating and empowering people. I found teaching more interesting than any other jobs. Does this motivate you to be a teacher.
+
+/* 
+Symbols
+-------
+[] - A set of characters (e.g: [a-z], [0-9], [A-Za-z0-9])
+\d - match where string contains digits (0-9), \D - match where string doesn't contain digits
+^ - starts with substring, $ - ends with
+* - 0 or more times, + - one or more times, ? - zero or one times
+\b - word bounder, matches with beginning or ending of a word
+{3} - exactly 3 characters, {3,} - at least 3 characters, {3-8} - 3 to 8 characters
+| - either or another (r'apple|banana') mean either apple or banana
+() - capture and group
+*/
+
+pattern = "[Aa]pple";
+let sentence3 =
+  "Apple and banana are fruits. If you want a softer fruit, take an apple.";
+let matched = sentence3.match(pattern);
+console.log(matched);
+// ['Apple', index: 0, input: 'Apple and banana are fruits. If you want a softer fruit, take an apple.', groups: undefined]
+
+pattern = /[Aa]pple/g;
+matched = sentence3.match(pattern);
+console.log(matched); // ['Apple', 'apple']
+
+pattern = /[Aa]pple|[Bb]anana/g;
+matched = sentence3.match(pattern);
+console.log(matched); // ['Apple', 'banana', 'apple']
