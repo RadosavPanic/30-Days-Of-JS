@@ -115,3 +115,25 @@ console.log(matched); // ['an', 'an', 'an', 'a ', 'ar']
 pattern = /[a].+/g; // . any character, + one or more times
 matched = sentence5.match(pattern);
 console.log(matched); // ['and banana are fruits']
+
+// Zero or 1 times (?)
+let sentence6 =
+  "I am not sure if there is a convention how to write the word e-mail.\
+Some people write it email others may write it as Email or E-mail";
+pattern = /[Ee]-?mail/g;
+matched = sentence6.match(pattern);
+console.log(matched); // ['e-mail', 'email', 'Email', 'E-mail']
+
+// Quantifier in RegExp
+let sentence7 = "This regular expression was made on March 8, 2024";
+pattern = /\b\w{4}\b/g; // \b word bounder for start, \w one word character, \b word bounder for end
+matched = sentence7.match(pattern);
+console.log(matched); // ['This', 'made', '2024']
+
+pattern = /\d{4}/g; // a number and exactly 4 digits
+matched = sentence7.match(pattern);
+console.log(matched); // ['2024']
+
+pattern = /\d{1,4}/g;
+matched = sentence7.match(pattern);
+console.log(matched); // ['8', '2024']
