@@ -137,3 +137,20 @@ console.log(matched); // ['2024']
 pattern = /\d{1,4}/g;
 matched = sentence7.match(pattern);
 console.log(matched); // ['8', '2024']
+
+// Cart (^)
+// Starts with
+pattern = /^This/g; // starts with This
+matched = sentence7.match(pattern);
+console.log(matched); // ['This']
+
+//Negation
+pattern = /[^A-Za-z,. ]+/g; // ^ here means negation, not A to Z, not a to z, no space, no comma no period
+matched = sentence7.match(pattern);
+console.log(matched); // ['8', '2024']
+
+// Exact match (^ and $)
+pattern = /^[A-Z][a-z]{3,12}$/g; // between 3 and 12 characters from start to the end
+let fname = "Radosav";
+matched = pattern.test(fname);
+console.log(matched); // true
