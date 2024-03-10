@@ -89,3 +89,28 @@ for (let i = 0; i <= 10; i++) {
   console.log("the # is " + i);
   console.assert(i % 2 === 0, { number: i, errorMessage: errorMessage });
 } // Assertion failed: {number: 9, errorMessage: '9 is not even'} and so on
+
+/* console.group */
+console.group("Names");
+console.log(names);
+console.groupEnd();
+
+console.group("Countries");
+console.log(countries);
+console.groupEnd();
+
+console.group("Users");
+console.log(user);
+console.log(users);
+console.groupEnd();
+
+/* console.count */
+const func1 = () => {
+  console.count("Function has been called");
+};
+func1(); // Function has been called: 1
+func1(); // Function has been called: 2
+func1(); // Function has been called: 3
+
+/* console.clear */
+console.clear(); // Console was cleared
