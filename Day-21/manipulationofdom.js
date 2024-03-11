@@ -33,3 +33,40 @@ allTitles3.forEach((title) => console.log(title));
 allTitles3[3].classList.add("title");
 allTitles3[3].id = "fourth-title";
 // h1#fourth-title.title
+
+allTitles3[3].setAttribute("class", "titles");
+allTitles3[3].setAttribute("id", "last-title");
+
+console.log(allTitles3[3]); // <h1 class="titles" id="last-title"></h1>
+
+allTitles3[3].classList.remove("titles");
+
+allTitles3[3].className = "title";
+allTitles3[3].id = "fourth-title";
+
+allTitles3[3].classList.add("title", "header-title");
+// <h1 class="title header-title" id="fourth-title"></h1>
+
+allTitles3[3].textContent = "Fourth title";
+
+const listOfChallenges = `
+<li>React challenge</li>
+<li>JS challenge</li>
+<li>CSS challenge</li>
+<li>Node challenge</li>
+`;
+const ul = document.querySelector("ul");
+ul.innerHTML = listOfChallenges; // appended elements using innerHTML
+
+// removing elements using innerHTML
+ul.innerHTML = "";
+
+const titles = document.querySelectorAll(".title");
+
+titles.forEach((title, i) => {
+  title.style.fontSize = "24px";
+  i % 2 === 0 ? (title.style.color = "green") : (title.style.color = "red");
+  i % 2 === 0
+    ? (title.style.backgroundColor = "aqua")
+    : (title.style.backgroundColor = "lightgray");
+});
